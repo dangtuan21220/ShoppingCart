@@ -1,8 +1,6 @@
 import ProductFeature from 'features/Product';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import productApi from './api/productApi';
-//import './App.css';
 import ColorBox from './components/ColorBox';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
