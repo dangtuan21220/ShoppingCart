@@ -21,7 +21,7 @@ function Product(props) {
         history.push(`/products/${product.id}`);
     }
     return (
-        <Box padding={1} onClick={handleClick}>
+        <Box style={{cursor: 'pointer'}} padding={1} onClick={handleClick}>
             <Box padding={1} minHeight="213px">
                 <img src={thumbnailUrl} alt={product.name} width="100%" />
             </Box>

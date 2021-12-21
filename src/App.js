@@ -1,14 +1,9 @@
-import Footer from 'components/Footer';
 import CartFeature from 'features/Cart';
 import ProductFeature from 'features/Product';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import ColorBox from './components/ColorBox';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
-import AlbumFeature from './features/Album';
-import CounterFeature from './features/Counter';
-import TodoFeature from './features/Todo';
 
 
 function App() {
@@ -21,10 +16,7 @@ function App() {
         <Redirect from="/home" to="/" exact />
         <Redirect from="/post-list/:postId" to="/posts/:postId" />
 
-        <Route path="/" component={CounterFeature} exact />
-        <Route path="/todos" component={TodoFeature} />
-        <Route path="/colorbox" component={ColorBox} />
-        <Route path="/albums" component={AlbumFeature} />
+        <Route path="/" component={ProductFeature} exact />
         <Route path="/products" component={ProductFeature} />
         <Route path="/cart" component={CartFeature} />
 
@@ -32,7 +24,6 @@ function App() {
       </Switch>
       
       
-      <Footer />
     </div>
   );
 }

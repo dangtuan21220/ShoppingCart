@@ -1,4 +1,4 @@
-import { Box, IconButton, MenuItem, Menu, Badge } from '@material-ui/core';
+import { Badge, Box, IconButton, Menu, MenuItem } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -14,8 +14,8 @@ import { logout } from 'features/Auth/userSlice';
 import { cartItemsCountSelector } from 'features/Cart/selectors';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -95,17 +95,6 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             VT STORE
           </Typography>
-
-          <NavLink to="/products" className={classes.link}>
-            <Button color="inherit">Product</Button>
-          </NavLink>
-
-          <NavLink to="/todos" className={classes.link}>
-            <Button color="inherit">Todos</Button>
-          </NavLink>
-          <NavLink to="/albums" className={classes.link}>
-            <Button color="inherit">Album</Button>
-          </NavLink>
 
           {!isLoggedIn && (
             <Button color="inherit" onClick={handleClickOpen}>
