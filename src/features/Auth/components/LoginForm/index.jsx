@@ -53,9 +53,7 @@ function LoginForm(props) {
         .email('Please enter a valid email address.'),
 
         password: yup.string()
-        .required('Please enter your password'),
-
-        
+        .required('Please enter your password'),   
 
     });
     

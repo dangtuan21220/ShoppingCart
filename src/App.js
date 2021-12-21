@@ -1,3 +1,5 @@
+import Footer from 'components/Footer';
+import CartFeature from 'features/Cart';
 import ProductFeature from 'features/Product';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
@@ -24,12 +26,13 @@ function App() {
         <Route path="/colorbox" component={ColorBox} />
         <Route path="/albums" component={AlbumFeature} />
         <Route path="/products" component={ProductFeature} />
+        <Route path="/cart" component={CartFeature} />
 
         <Route component={NotFound} />
       </Switch>
       
       
-      Footer
+      <Footer />
     </div>
   );
 }

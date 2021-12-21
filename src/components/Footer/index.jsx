@@ -1,4 +1,4 @@
-import { Box, IconButton, MenuItem, Menu, Badge } from '@material-ui/core';
+import { Box, IconButton, MenuItem, Menu } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -6,20 +6,19 @@ import DialogContent from '@material-ui/core/DialogContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { AccountCircle, Close, ShoppingCart } from '@material-ui/icons';
+import { AccountCircle, Close } from '@material-ui/icons';
 import HomeIcon from '@material-ui/icons/Home';
 import Login from 'features/Auth/components/Login';
 import Register from 'features/Auth/components/Register';
 import { logout } from 'features/Auth/userSlice';
-import { cartItemsCountSelector } from 'features/Cart/selectors';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: theme.spacing(2),
   },
   menuButton: {
     marginRight: theme.spacing(1.5),
@@ -45,11 +44,8 @@ const MODE = {
   REGISTER: 'register',
 };
 
-export default function Header() {
+export default function Footer() {
   const dispatch = useDispatch();
-
-  const cartItemsCount = useSelector(cartItemsCountSelector)
-  const history = useHistory();
 
   const loggedInUser = useSelector((state) => state.user.current);
   const isLoggedIn = !!loggedInUser.id;
@@ -73,10 +69,6 @@ export default function Header() {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const handleCartClick = () => {
-    history.push('/cart')
-  }
 
   const handleLogoutClick = () => {
     const action = logout();
@@ -112,11 +104,6 @@ export default function Header() {
               Login
             </Button>
           )}
-          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={cartItemsCount} color="error" onClick={handleCartClick}>
-              <ShoppingCart />
-            </Badge>
-          </IconButton>
           {isLoggedIn && (
             <IconButton color="inherit" onClick={handleUserClick}>
               <AccountCircle />
